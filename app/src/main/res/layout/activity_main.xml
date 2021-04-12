@@ -44,8 +44,13 @@
         android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="53dp"
+        android:layout_marginRight="53dp"
+        android:layout_marginBottom="57dp"
         android:text="ToggleButton"
-        tools:layout_editor_absoluteX="258dp"
-        tools:layout_editor_absoluteY="626dp" />
+        android:textOff="Beställ pizza"
+        android:textOn="Pizza på väg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
