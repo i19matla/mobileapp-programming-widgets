@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button b = findViewById(R.id.knappensid);
+        Button variabelKnappen = findViewById(R.id.knappensid);     //Notera nästan ALLT har en egen datatyp.
 
-        b.setOnClickListener(new View.OnClickListener() {
+        variabelKnappen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d("==>","Knappen är klickad! Tjohoooooooo!");
