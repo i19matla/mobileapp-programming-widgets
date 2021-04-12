@@ -1,42 +1,61 @@
 
 # Rapport
-
-**Skriv din rapport här!**
-
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+---------------------------------------------------------------------------------------------------------------------------------------
+För att lösa uppgiften påbörjades några expriment där kod lades till i XML-filen för att skapa en knapp.
+Då knappen var skapad fortsattes experimentet i MainActivity.java där koden lades till för att skriva ut en text till loggen.
+Koden till knappen är initialt helt handknackad för att sedan gå över till designläget i XML-filen och grafiskt förflytta knappen istället
+för att skriva in kod för positionen. Mycket smidigt!
+I MainActivity.java skapas en variabel som tilldelas knappens id. Denna variabel används sedan tillsammans med en onClickListener som
+känner av om knappen blir klickad på. I funktionen (eller metoden när det är objektorienterat?) setOnClickListener(); stoppas den tidigare
+nämnda funktionen onClickListener vilket kommer leda oss in på att Log.d. Det är koden som gör att texten Knappen är klickad... skrivs ut
+till loggen.
+Se kod 1.
+---------------------------------------------------------------------------------------------------------------------------------------
+Elementen imageView och toggleButton har lagts till genom designläget vilket var mycket smidigt! Dessa har dessutom helt enkelt bara högerklickats
+på dessutom för att få en constrain-layout. Textelementet är det element som låg med appen från början och har helt enkelt bara fått en ny text och
+en constrain-layout för att kunna positioneras.
+Se exempel kod 2.
+-----------------
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
-}
+Kod 1:
+I XML:
+<Button
+        android:id="@+id/knappensid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Superknappen!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.297" />
+I java:
+        Button variabelKnappen = findViewById(R.id.knappensid);     //Notera nästan ALLT har en egen datatyp.
+
+        variabelKnappen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("==>","Knappen är klickad! Tjohoooooooo!");
+            }
+        });
 ```
 
-Bilder läggs i samma mapp som markdown-filen.
+```
+Kod 2:
+<ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="404dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pizza_bild_till_app" />
+```
 
-![](android.png)
 
-Läs gärna:
+![](widgets.png)
 
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
